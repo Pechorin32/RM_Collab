@@ -14,13 +14,13 @@ while True:
         print("We don't have a team called " + homeTeam)
 
     awayTeam = input("Please enter the away team: ")
-    while awayTeam not in league:
-        print("Please enter a valid Team name: ")
-        awayTeam = input("Please enter the away team: ")
+    if awayTeam == "quit":
+        break
     if awayTeam in league:
         existingAwayPoints = league.get(awayTeam)
         print("{} currently has {} points".format(awayTeam, existingAwayPoints))
-        print()
+    else:
+        print("We don't have a team called " + awayTeam)
 
     homeScore = input("Please enter number of goals scored by {}: ".format(homeTeam))
     awayScore = input("Please enter number of goals scored by {}: ".format(awayTeam))
@@ -43,3 +43,9 @@ while True:
 
     totalAwayPoints = int(existingAwayPoints) +int(awayPoints)
     print("{} now has a total of {} points in the league".format(awayTeam, totalAwayPoints))
+
+
+# league[homeTeam] = points + homePoints
+# league[awayTeam] = points + awayPoints
+
+

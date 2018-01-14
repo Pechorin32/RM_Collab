@@ -11,6 +11,7 @@ while homeTeam not in league:
 if homeTeam in league:
     existingHomePoints = league.get(homeTeam)
     print("{} currently has {} points".format(homeTeam, existingHomePoints))
+    print()
 
 awayTeam = input("Please enter the away team: ")
 while awayTeam not in league:
@@ -19,9 +20,10 @@ while awayTeam not in league:
 if awayTeam in league:
     existingAwayPoints = league.get(awayTeam)
     print("{} currently has {} points".format(awayTeam, existingAwayPoints))
+    print()
 
-homeScore = input("Please enter number of goals scored by home team: ")
-awayScore = input("Please enter number of goals scored by away team: ")
+homeScore = input("Please enter number of goals scored by {}: ".format(homeTeam))
+awayScore = input("Please enter number of goals scored by {}: ".format(awayTeam))
 
 if homeScore > awayScore:
     homePoints += 3
@@ -31,8 +33,10 @@ elif homeScore == awayScore:
 elif homeScore < awayScore:
     awayPoints += 3
 
+print()
 print("{} gets: {} points".format(homeTeam, homePoints))
 print("{} gets: {} points".format(awayTeam, awayPoints))
+print()
 
 totalHomePoints = int(existingHomePoints) +int(homePoints)
 print("{} now has a total of {} points in the league".format(homeTeam, totalHomePoints))

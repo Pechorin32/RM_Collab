@@ -1,3 +1,7 @@
+"""
+
+"""
+
 league = {"Celtic": 3, "Rangers": 0, "Aberdeen": 0}
 
 homePoints = 0

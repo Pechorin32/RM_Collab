@@ -1,17 +1,27 @@
-league = {"Celtic": 3, "Rangers": 0, "Aberdeen": 0}
+"""
+Football League
 
-homePoints = 0
-awayPoints = 0
+This script automates the process of logging football match scores and assigning points to teams based on the match result.
 
-while True:
-    homeTeam = input("Please enter the home team: ")
-    if homeTeam == "quit":
-        break
-    if homeTeam in league:
-        existingHomePoints = league.get(homeTeam)
-        print("{} currently has {} points".format(homeTeam, existingHomePoints))
+"""
+
+league = {"Celtic": 3, "Rangers": 0, "Aberdeen": 0} #create dict object to store football league teams and their points. 
+
+homePoints = 0 # create variable to store home points as an integer. Set to zero at point of object creation.
+awayPoints = 0 # create variable to store away points as an integer. Set to zero at point of object creation.
+
+while True: #start infinite loop - this is useful where continuous operations are required that are broken or interupted only when certain input is provided.
+    homeTeam = input("Please enter the home team: ") #homeTeam variable stores user input. Syntax suggests Python 3. Is that right?
+    if homeTeam == "quit": #if user types the string "quit" 
+        break #interupt the infinite loop
+    if homeTeam in league: #see if user input string matches an entry in the league dict.
+        #SUGGESTION from MR: for reference to league dict in line 17, be explicit about the fact it's the dict KEYS your looking in for a match with homeTeam variable. Use league.keys() 
+        existingHomePoints = league.get(homeTeam) # get the value associated with the key in the dict that matches the homeTeam variable.
+        print("{} currently has {} points".format(homeTeam, existingHomePoints)) # print some facts for the user. Modern formatting syntax employed.
     else:
-        print("We don't have a team called " + homeTeam)
+        print("We don't have a team called " + homeTeam) #some simple error handling to deal with user entering a team that isn't in the league.
+
+ ### DM TO CONTINUE COMMENTING CODE FROM HERE###
 
     awayTeam = input("Please enter the away team: ")
     if awayTeam == "quit":

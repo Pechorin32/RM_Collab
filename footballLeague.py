@@ -21,41 +21,43 @@ while True: #start infinite loop - this is useful where continuous operations ar
     else:
         print("We don't have a team called " + homeTeam) #some simple error handling to deal with user entering a team that isn't in the league.
 
- ### DM TO CONTINUE COMMENTING CODE FROM HERE###
-
-    awayTeam = input("Please enter the away team: ")
-    if awayTeam == "quit":
-        break
+    awayTeam = input("Please enter the away team: ") 
+    if awayTeam == "quit":  
+        break 
     if awayTeam in league:
         existingAwayPoints = league.get(awayTeam)
         print("{} currently has {} points".format(awayTeam, existingAwayPoints))
     else:
         print("We don't have a team called " + awayTeam)
 
-    homeScore = input("Please enter number of goals scored by {}: ".format(homeTeam))
-    awayScore = input("Please enter number of goals scored by {}: ".format(awayTeam))
+    homeScore = input("Please enter number of goals scored by {}: ".format(homeTeam)) # homeScore variable stores user input
+    awayScore = input("Please enter number of goals scored by {}: ".format(awayTeam)) # awayScore variable stores user input
 
-    if homeScore > awayScore:
-        homePoints += 3
-    elif homeScore == awayScore:
-        homePoints += 1
-        awayPoints += 1
-    elif homeScore < awayScore:
-        awayPoints += 3
+    if homeScore > awayScore: # compares variables
+        homePoints += 3 # when above condition is met adds three points to the existing number of points held by the home team
+    elif homeScore == awayScore: # compares variables
+        homePoints += 1 # when above condition is met adds one point to the existing number of points held by the home team
+        awayPoints += 1 # when above condition is met adds one point to the existing number of points held by the away team
+    elif homeScore < awayScore: # compares variables
+        awayPoints += 3 # when above condition is met adds three points to the existing number of points held by the away team
 
     print()
     print("{} gets: {} points".format(homeTeam, homePoints))
     print("{} gets: {} points".format(awayTeam, awayPoints))
     print()
+    # prints number of points for user to view.
 
-    totalHomePoints = int(existingHomePoints) +int(homePoints)
+    totalHomePoints = int(existingHomePoints) +int(homePoints) # calculates the number of points the home team now has in the league
     print("{} now has a total of {} points in the league".format(homeTeam, totalHomePoints))
 
-    totalAwayPoints = int(existingAwayPoints) +int(awayPoints)
+    totalAwayPoints = int(existingAwayPoints) +int(awayPoints) # calculates the number of points the home team now has in the league
     print("{} now has a total of {} points in the league".format(awayTeam, totalAwayPoints))
+    
+    league[homeTeam] = totalHomePoints # updates the dict object with the number of points
+    league[awayTeam] = totalAwayPoints
+
+    print(league) 
 
 
-# league[homeTeam] = points + homePoints
-# league[awayTeam] = points + awayPoints
 
 

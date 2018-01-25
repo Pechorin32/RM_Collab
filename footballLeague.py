@@ -8,11 +8,6 @@ This script automates the process of logging football match scores and assigning
 league = {"CELTIC": 3, "RANGERS": 0, "ABERDEEN": 0}
 # create dict object to store football league teams and their points.
 
-homePoints = 0 # create variable to store home points as an integer. Set to zero at point of object creation.
-awayPoints = 0 # create variable to store away points as an integer. Set to zero at point of object creation.
-postGameHomePoints = 0
-postGameAwayPoints = 0
-
 while True: #start infinite loop - this is useful where continuous operations are required that are broken or interupted only when certain input is provided.
     homeTeam = input("Please enter the home team: ").upper() #homeTeam variable stores user input. Syntax suggests Python 3. Is that right?
     if homeTeam == "quit": #if user types the string "quit"
@@ -36,14 +31,19 @@ while True: #start infinite loop - this is useful where continuous operations ar
     homeScore = input("Please enter number of goals scored by {}: ".format(homeTeam)) # homeScore variable stores user input
     awayScore = input("Please enter number of goals scored by {}: ".format(awayTeam)) # awayScore variable stores user input
 
+    homePoints = 0  # create variable to store home points as an integer. Set to zero at point of object creation.
+    awayPoints = 0  # create variable to store away points as an integer. Set to zero at point of object creation.
+    postGameHomePoints = 0
+    postGameAwayPoints = 0
+
     if homeScore > awayScore: # compares variables
-        postGameHomePoints = homePoints + 3# when above condition is met adds three points to the existing number of points held by the home team
+        postGameHomePoints = homePoints + 3  # when above condition is met adds three points to the existing number of points held by the home team
         postGameAwayPoints = awayPoints + 0
-    elif homeScore == awayScore: # compares variables
-        postGameHomePoints = homePoints + 1 # when above condition is met adds one point to the existing number of points held by the home team
-        postGameAwayPoints = awayPoints + 1 # when above condition is met adds one point to the existing number of points held by the away team
-    elif homeScore < awayScore: # compares variables
-        postGameAwayPoints = awayPoints + 3 # when above condition is met adds three points to the existing number of points held by the away team
+    elif homeScore == awayScore:  # compares variables
+        postGameHomePoints = homePoints + 1  # when above condition is met adds one point to the existing number of points held by the home team
+        postGameAwayPoints = awayPoints + 1  # when above condition is met adds one point to the existing number of points held by the away team
+    elif homeScore < awayScore:  # compares variables
+        postGameAwayPoints = awayPoints + 3  # when above condition is met adds three points to the existing number of points held by the away team
         ostGameHomePoints = homePoints + 0
 
     print()
@@ -62,3 +62,5 @@ while True: #start infinite loop - this is useful where continuous operations ar
     league[awayTeam] = totalAwayPoints
 
     print(league)
+
+
